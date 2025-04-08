@@ -11,13 +11,11 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 class CompatibleImageTest extends AbstractMongo {
 
-    static String[] image() {
-        return new String[] {
-            "mongo:7",
-            "mongodb/mongodb-community-server:7.0.2-ubi8",
-            "mongodb/mongodb-enterprise-server:7.0.0-ubi8",
-        };
-    }
+    public static String[] images = new String[] {
+        "mongo:7",
+        "mongodb/mongodb-community-server:7.0.2-ubi8",
+        "mongodb/mongodb-enterprise-server:7.0.0-ubi8"
+    };
 
     @Test
     void shouldExecuteTransactions() {
@@ -34,7 +32,7 @@ class CompatibleImageTest extends AbstractMongo {
     }
 
     @ParameterizedTest
-    @MethodSource("image")
+    @FieldSource("images")
     void shouldSupportSharding(String image) {
         try (MongoDBContainer mongoDBContainer = new MongoDBContainer(image).withSharding()) {
             mongoDBContainer.start();

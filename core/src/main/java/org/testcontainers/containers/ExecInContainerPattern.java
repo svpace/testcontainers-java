@@ -248,6 +248,7 @@ public class ExecInContainerPattern {
             stderrConsumer.toString(outputCharset)
         );
 
+        log.trace("{}: exit code: {}", containerName, result.getExitCode());
         log.trace("{}: stdout: {}", containerName, result.getStdout());
         log.trace("{}: stderr: {}", containerName, result.getStderr());
         return result;

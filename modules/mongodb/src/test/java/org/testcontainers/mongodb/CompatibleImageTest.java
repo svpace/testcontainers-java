@@ -1,4 +1,4 @@
-package org.testcontainers.mongodb;
+package org.testcontainers.containers;
 
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;

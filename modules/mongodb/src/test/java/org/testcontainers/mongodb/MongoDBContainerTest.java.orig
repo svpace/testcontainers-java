@@ -1,0 +1,59 @@
+package org.testcontainers.mongodb;
+
+<<<<<<< HEAD:modules/mongodb/src/test/java/org/testcontainers/mongodb/MongoDBContainerTest.java
+=======
+import lombok.val;
+>>>>>>> 29161a17 (WIP):modules/mongodb/src/test/java/org/testcontainers/containers/MongoDBContainerTest.java
+import org.junit.jupiter.api.Test;
+
+import static org.assertj.core.api.Assertions.assertThat;
+
+class MongoDBContainerTest extends AbstractMongo {
+
+    /**
+     * Taken from <a href="https://docs.mongodb.com/manual/core/transactions/">https://docs.mongodb.com</a>
+     */
+    @Test
+<<<<<<< HEAD:modules/mongodb/src/test/java/org/testcontainers/mongodb/MongoDBContainerTest.java
+    void shouldExecuteTransactions() {
+        try (
+            // creatingMongoDBContainer {
+            MongoDBContainer mongoDBContainer = new MongoDBContainer("mongo:4.0.10").withReplicaSet()
+            // }
+        ) {
+            // startingMongoDBContainer {
+=======
+    public void shouldExecuteTransactions() {
+        try (val mongoDBContainer = new MongoDBContainer("mongo:4.0.10")) {
+>>>>>>> 29161a17 (WIP):modules/mongodb/src/test/java/org/testcontainers/containers/MongoDBContainerTest.java
+            mongoDBContainer.start();
+            executeTx(mongoDBContainer);
+        }
+    }
+
+    @Test
+<<<<<<< HEAD:modules/mongodb/src/test/java/org/testcontainers/mongodb/MongoDBContainerTest.java
+    void supportsMongoDB_7_0() {
+        try (MongoDBContainer mongoDBContainer = new MongoDBContainer("mongo:7.0")) {
+=======
+    public void supportsMongoDB_7_0() {
+        try (val mongoDBContainer = new MongoDBContainer("mongo:7.0")) {
+>>>>>>> 29161a17 (WIP):modules/mongodb/src/test/java/org/testcontainers/containers/MongoDBContainerTest.java
+            mongoDBContainer.start();
+        }
+    }
+
+    @Test
+<<<<<<< HEAD:modules/mongodb/src/test/java/org/testcontainers/mongodb/MongoDBContainerTest.java
+    void shouldTestDatabaseName() {
+        try (MongoDBContainer mongoDBContainer = new MongoDBContainer("mongo:4.0.10")) {
+=======
+    public void shouldTestDatabaseName() {
+        try (val mongoDBContainer = new MongoDBContainer("mongo:4.0.10")) {
+>>>>>>> 29161a17 (WIP):modules/mongodb/src/test/java/org/testcontainers/containers/MongoDBContainerTest.java
+            mongoDBContainer.start();
+            val databaseName = "my-db";
+            assertThat(mongoDBContainer.getReplicaSetUrl(databaseName)).endsWith(databaseName);
+        }
+    }
+}

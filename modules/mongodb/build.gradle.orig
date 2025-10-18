@@ -1,0 +1,28 @@
+description = "Testcontainers :: MongoDB"
+
+dependencies {
+    api project(':testcontainers')
+
+    testImplementation("org.junit.jupiter:junit-jupiter:5.12.2")
+    testImplementation("org.junit.jupiter:junit-jupiter-params:5.12.2")
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.12.2'
+    testImplementation(project(":junit-jupiter"))
+    testImplementation("org.mongodb:mongodb-driver-sync:5.1.4")
+<<<<<<< HEAD
+}
+
+tasks.japicmp {
+    classExcludes = [
+        "org.testcontainers.containers.MongoDBContainer"
+    ]
+=======
+    testImplementation 'org.assertj:assertj-core:3.27.3'
+}
+
+test {
+    useJUnitPlatform()
+    testLogging {
+        events "passed", "skipped", "failed"
+    }
+>>>>>>> 29161a17 (WIP)
+}
